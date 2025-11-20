@@ -1,0 +1,24 @@
+<main>
+  <app-learning-resources />
+
+  <hr />
+
+  <app-auth />
+
+  <!--@if (isAdmin()) {
+  <p>Only admin can see this</p>
+  }-->
+  <!-- <p *ngIf="isAdmin()">Only admin can see this</p> -->
+  <!-- <ng-template appAuth="admin">
+    <p>Only admin can see this</p>
+  </ng-template> -->
+  <p *appAuth="'admin'" appLog class="protected-content admin">
+    Only admin can see this
+  </p>
+  <p *appAuth="'user'" appLog class="protected-content unauthenticated">
+    Regular users can see this
+  </p>
+  <p *appAuth="'guest'" appLog class="protected-content authenticated">
+    Guest users can see this
+  </p>
+</main>
